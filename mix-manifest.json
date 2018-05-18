@@ -1,4 +1,5 @@
 {
     "/assets/app.js": "/assets/app.js",
-    "/assets/styles.css": "/assets/styles.css"
+    "/assets/styles.css": "/assets/styles.css",
+    "/assets/tiny_mce_button.js": "/assets/tiny_mce_button.js"
 }

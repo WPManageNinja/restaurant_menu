@@ -69,13 +69,15 @@ class RestaurantMenu {
 	public function adminHooks() {
 		add_action('add_meta_boxes_restaurant_menu', array('\RestaurantMenu\Classes\MetaBoxClass', 'addMetaBoxes'));
 		add_action('save_post_restaurant_menu',  array('\RestaurantMenu\Classes\MetaBoxClass', 'saveMeta'));
-		add_action('widgets_init', array($this, 'rlResMenuWidget') );
+		// add_action('widgets_init', array($this,'rlResMenuWidget') );
+
+		add_action( 'current_screen' , array($this,'resCustomButton'));
 	}
 
-	public function rlResMenuWidget(){
-		$ResMenuWidgetClass = new \RestaurantMenu\Classes\ResMenuWidgetClass();
-		register_widget($ResMenuWidgetClass);
-	} 
+	// public function rlResMenuWidget(){
+	// 	$ResMenuWidgetClass = new \RestaurantMenu\Classes\ResMenuWidgetClass();
+	// 	register_widget($ResMenuWidgetClass);
+	// } 
 
 	public function enqueueScripts() {
 		wp_enqueue_style( 'rl_res_style-res-menu', RESTAURANT_MENU_PLUGIN_URL . 'assets/style.css' );
@@ -109,6 +111,28 @@ class RestaurantMenu {
 		echo ob_get_clean();
 		die();
 	}
+
+
+	// Adding TinyMCE button
+	 public function resCustomButton() {
+	    $c_screen = get_current_screen();
+	    if($c_screen->post_type == "page") {
+	      add_filter("mce_external_plugins", array($this, 'myExternalJS'));
+	      add_filter("mce_buttons", array($this, 'ourRestaurantButtons'));
+	    }
+	  }
+
+	  public function myExternalJS($plugin_array) {
+	    $plugin_array['res_ninja_shortcodes'] = RESTAURANT_MENU_PLUGIN_URL .'assets/tiny_mce_button.js';
+	    return $plugin_array;
+	  }
+
+	  public function ourRestaurantButtons($buttons) {
+	    array_push($buttons, 'shortCode');
+	    return $buttons;
+	  }
+
+
 
 
 }
