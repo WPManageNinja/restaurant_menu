@@ -1,14 +1,14 @@
-<div id="restaurant_modal_<?php echo $postID; ?>" class="tr_modal_dialog">
+<div id="restaurant_modal_<?php echo esc_attr($postID); ?>" class="tr_modal_dialog">
     <div class="modal_item">
         <a title="Close" class="tr_close">x</a>
 		<?php $featuredImage = get_the_post_thumbnail_url($post, 'large'); ?>
         <?php do_action('tr_menu_before_modal_header', $post); ?>
 		<?php if ( $featuredImage ): ?>
-            <div style="background-image: url('<?php echo $featuredImage; ?>')" class="tr_header_holder">
+            <div style="background-image: url('<?php echo esc_url($featuredImage); ?>')" class="tr_header_holder">
                 <div class="tr_header_section">
-                    <h3><?php echo $post->post_title; ?></h3>
+                    <h3><?php echo esc_html($post->post_title); ?></h3>
 					<?php if ( $price ): ?>
-                        <p class="centered_price"><?php echo $currency; ?><?php echo $price; ?></p>
+                        <p class="centered_price"><?php echo esc_html($currency); ?><?php echo esc_html($price); ?></p>
 					<?php endif; ?>
 	                <?php do_action('tr_menu_after_modal_header_inner', $post); ?>
                 </div>
@@ -18,13 +18,13 @@
         <div class="tr_modal_content">
 	        <?php do_action('tr_menu_at_modal_content_start', $post); ?>
 	        <?php if ( ! $featuredImage ): ?>
-                <h2 class="tr_inner_title"><?php echo $post->post_title; ?></h2>
+                <h2 class="tr_inner_title"><?php echo esc_html($post->post_title); ?></h2>
 	        <?php endif; ?>
 
             <?php
-	        if($subheader = get_post_meta($post->ID, '_ninja_restaurant_sub_header', true)):
+	        if ($subheader = get_post_meta($post->ID, '_ninja_restaurant_sub_header', true)):
 		        ?>
-                <h4 class="tr_sub_header"><?php echo $subheader; ?></h4>
+                <h4 class="tr_sub_header"><?php echo esc_html($subheader); ?></h4>
 	        <?php endif; ?>
 
 	        <?php
@@ -32,7 +32,7 @@
 	        if ( count( $categories ) ):
 		        echo '<div class="tr_tax_items">';
 		        foreach ( $categories as $category ):
-			        echo '<span>' . $category->name . '</span>';
+			        echo '<span>' . esc_html($category->name) . '</span>';
 		        endforeach;
 		        echo "</div>";
 	        endif;
@@ -51,8 +51,8 @@
                     <ul class="nutrition_info">
 						<?php foreach ( $nutrition as $nutrition_label => $nutrition_value ): ?>
                             <li>
-                                <span class="nutrition_label"><strong><?php echo $nutrition_label; ?></strong></span>:
-                                <span class="nutrition_value"><?php echo $nutrition_value; ?></span>
+                                <span class="nutrition_label"><strong><?php echo esc_html($nutrition_label); ?></strong></span>:
+                                <span class="nutrition_value"><?php echo esc_html($nutrition_value); ?></span>
                             </li>
 						<?php endforeach; ?>
                     </ul>

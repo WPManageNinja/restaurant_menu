@@ -1,11 +1,11 @@
 === Trendy Restaurant Menu - Best Restaurant Plugin for WordPress ===
-Contributors: wpmanageninja,techjewel
+Contributors: wpmanageninja,techjewel,ruhel241
 Donate link: https://wpmanageninja.com/downloads/ninja-tables-pro-add-on/
-Tags:  restaurant menu, food items, foodpress, menu manager, trendy menu, Restaurant items popup
+Tags: restaurant menu, food items, foodpress, menu manager, trendy menu, Restaurant items popup
 Requires at least: 4.5
 Requires PHP: 5.4 or greater
-Tested up to: 4.9.6
-Stable tag: trunk
+Tested up to: 6.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,10 @@ Yes, We have dedicated widget for the menu items and you can add one or more wid
 6. Shortcode Builder
 
 == Changelog ==
+
+= 1.0.1 ( Date: November 03, 2022 ) = 
+* Bug Fixes 
+* WordPress version 6.1 compatible
 
 = 1.0.0 ( Date: May 26, 2018 ) = 
 Initial Release

@@ -8,8 +8,8 @@
                 <ul class="nutrition_info">
 					<?php foreach ( $nutrition as $nutrition_label => $nutrition_value ): ?>
                         <li>
-                            <span class="nutrition_label"><strong><?php echo $nutrition_label; ?></strong></span>:
-                            <span class="nutrition_value"><?php echo $nutrition_value; ?></span>
+                            <span class="nutrition_label"><strong><?php echo  esc_html($nutrition_label); ?></strong></span>:
+                            <span class="nutrition_value"><?php echo  esc_html($nutrition_value); ?></span>
                         </li>
 					<?php endforeach; ?>
                 </ul>
@@ -22,7 +22,7 @@
 				<?php _e( 'Ingredients', 'tr_menu' ); ?>
             </h4>
             <div class="ingredients">
-				<?php echo $ingredients; ?>
+				<?php echo  esc_html($ingredients); ?>
             </div>
         </div>
 	<?php endif; ?>
@@ -31,7 +31,7 @@
 	if ( count( $categories ) ):
 		echo '<div class="tr_tax_items">';
 		foreach ( $categories as $category ):
-			echo '<span>' . $category->name . '</span>';
+			echo '<span>' .  esc_html($category->name) . '</span>';
 		endforeach;
 		echo "</div>";
 	endif;

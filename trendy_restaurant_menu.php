@@ -1,14 +1,14 @@
 <?php
 /**
  * @link              https://wpmanageninja.com
- * @since             1.0.0
+ * @since             1.0.1
  * @package           tr_menu
  *
  * @wordpress-plugin
  * Plugin Name:       Trendy Restaurant Menu
  * Plugin URI:        https://wpmanageninja.com/products
  * Description:       The Best Restaurant Menu Plugin in WordPress. This plugin aims to show the restaurant menu in a nice and trendy way.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            WPManageNinja
  * Author URI:        https://wpmanageninja.com/
  * License:           GPL-2.0+
@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) or die();
 
 define( 'TRENDY_RESTAURANT_MENU_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'TRENDY_RESTAURANT_MENU_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
-define( 'TRENDY_RESTAURANT_MENU_PLUGIN_VERSION', '1.0.0' );
+define( 'TRENDY_RESTAURANT_MENU_PLUGIN_VERSION', '1.0.1' );
 include 'load.php';
 
 register_activation_hook( __FILE__, function () {
